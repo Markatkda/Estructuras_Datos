@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Laboratorio2.Controller.CrudLibroBiblioteca">
+   <children>
+      <TabPane fx:id="tabCrudLibro" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="721.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab fx:id="tabCrearLibro" text="Crear Libro">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="646.0" prefWidth="684.0">
+                     <children>
+                        <ImageView fitHeight="643.0" fitWidth="677.0" layoutX="-37.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../imagenes/fondo2.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="185.0" layoutY="8.0" prefHeight="37.0" prefWidth="199.0" text="CREAR LIBRO">
+                           <font>
+                              <Font name="Lucida Calligraphy Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tblLibrosCreados" layoutX="41.0" layoutY="311.0" prefHeight="266.0" prefWidth="522.0">
+                           <columns>
+                              <TableColumn fx:id="col_IdLibroC" prefWidth="58.0" text="Id" />
+                              <TableColumn fx:id="colNombreLibroC" prefWidth="124.0" text="Nombre" />
+                              <TableColumn fx:id="colAutorLibroC" prefWidth="196.0" text="Autor" />
+                              <TableColumn fx:id="colFechaLibroC" prefWidth="143.0" text="Año de publicacion" />
+                           </columns>
+                        </TableView>
+                        <VBox layoutX="444.0" layoutY="73.0" prefHeight="187.0" prefWidth="114.0" spacing="25.0">
+                           <children>
+                              <Button fx:id="btnCrearLibro" layoutX="407.0" layoutY="129.0" mnemonicParsing="false" onAction="#CrearLibro" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: #000000;" text="Crear" textFill="WHITE">
+                                 <font>
+                                    <Font name="Franklin Gothic Demi" size="15.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnBuscarLibro" layoutX="10.0" layoutY="69.0" mnemonicParsing="false" onAction="#BuscarLibro" prefHeight="34.0" prefWidth="166.0" style="-fx-background-color: #000000;" text="Buscar" textFill="WHITE">
+                                 <font>
+                                    <Font name="Franklin Gothic Demi" size="15.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnEliminarLibro" layoutX="398.0" layoutY="226.0" mnemonicParsing="false" onAction="#EliminarLibro" prefHeight="34.0" prefWidth="166.0" style="-fx-background-color: #000000;" text="Eliminar" textFill="WHITE">
+                                 <font>
+                                    <Font name="Franklin Gothic Demi" size="15.0" />
+                                 </font></Button>
+                              <Button fx:id="btnActualizarLibro" layoutX="393.0" layoutY="180.0" mnemonicParsing="false" onAction="#ActualizarLibro" prefHeight="34.0" prefWidth="132.0" style="-fx-background-color: #000000;" text="Actualizar" textFill="WHITE">
+                                 <font>
+                                    <Font name="Franklin Gothic Demi" size="15.0" />
+                                 </font></Button>
+                           </children>
+                        </VBox>
+                        <HBox layoutX="119.0" layoutY="610.0" spacing="50.0" />
+                        <GridPane layoutX="46.0" layoutY="64.0" prefHeight="204.0" prefWidth="364.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="266.0" minWidth="10.0" prefWidth="138.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="243.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="txtAutorLibro" prefHeight="33.0" prefWidth="226.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtNombreLibro" prefHeight="33.0" prefWidth="226.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtIdLibro" GridPane.columnIndex="1" />
+                              <Label text="Año de publicacion" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Franklin Gothic Demi" size="15.0" />
+                                 </font></Label>
+                              <Label text="Autor" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Franklin Gothic Demi" size="15.0" />
+                                 </font></Label>
+                              <Label text="Nombre: " GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Franklin Gothic Demi" size="15.0" />
+                                 </font></Label>
+                              <Label text="Id: ">
+                                 <font>
+                                    <Font name="Franklin Gothic Demi" size="15.0" />
+                                 </font></Label>
+                              <DatePicker fx:id="dateFechaLibro" prefHeight="34.0" prefWidth="239.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                        <Separator layoutX="39.0" layoutY="321.0" prefHeight="3.0" prefWidth="524.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabMisLibros" text="Mis Libros">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="646.0" prefWidth="738.0">
+                     <children>
+                        <ImageView fitHeight="619.0" fitWidth="600.0" layoutY="-2.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../imagenes/fondo3.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="221.0" layoutY="38.0" text="Libros de: ">
+                           <font>
+                              <Font name="Lucida Calligraphy Italic" size="40.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tblLibrosPrestados" layoutX="57.0" layoutY="212.0" prefHeight="326.0" prefWidth="487.0">
+                           <columns>
+                              <TableColumn fx:id="col_IdLibroP" prefWidth="73.0" text="Id" />
+                              <TableColumn fx:id="colNombreLibroP" prefWidth="134.0" text="Nombre" />
+                              <TableColumn fx:id="colAutorLibroP" prefWidth="125.0" text="Autor" />
+                              <TableColumn fx:id="colFechaLibroP" prefWidth="155.0" text="Año de publicacion" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="btnCerrarSesionP" layoutX="413.0" layoutY="563.0" mnemonicParsing="false" onAction="#cerrarSesionP" style="-fx-background-color: #CD5C5C;" text="Cerrar Sesion" textFill="WHITE">
+                           <font>
+                              <Font name="Franklin Gothic Demi" size="18.0" />
+                           </font></Button>
+                        <ComboBox fx:id="cboxEstudiantes" layoutX="158.0" layoutY="125.0" onAction="#VerListaPrestamos" prefHeight="29.0" prefWidth="342.0" />
+                        <Button fx:id="btnDevolverLibro" layoutX="57.0" layoutY="563.0" mnemonicParsing="false" onAction="#DevolverLibro" prefHeight="34.0" prefWidth="141.0" style="-fx-background-color: #000000;" text="DevolverLibro" textFill="WHITE">
+                           <font>
+                              <Font name="Franklin Gothic Demi" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabPrestamos" text="Prestamos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="625.0" fitWidth="600.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../imagenes/fondo2.jpg" />
+                           </image>
+                        </ImageView>
+                        <TableView fx:id="tblPrestamos" layoutX="75.0" layoutY="60.0" prefHeight="494.0" prefWidth="446.0">
+                          <columns>
+                            <TableColumn fx:id="col_idPrestamo" prefWidth="106.0" text="Id" />
+                            <TableColumn fx:id="col_usuarioPrestamo" prefWidth="195.0" text="Usuario" />
+                              <TableColumn fx:id="col_prestamo" prefWidth="144.0" text="Prestamo" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="232.0" text="Prestamos" wrapText="true">
+                           <font>
+                              <Font name="Lucida Calligraphy Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnCerrarSesionPrestamo" layoutX="236.0" layoutY="569.0" mnemonicParsing="false" onAction="#cerrarSesionPrestamo" prefHeight="29.0" prefWidth="128.0" style="-fx-background-color: #CD5C5C;" text="Cerrar Sesion" textFill="WHITE">
+                           <font>
+                              <Font name="Franklin Gothic Demi" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabBiblioteca" text="Biblioteca">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="620.0" prefWidth="596.0">
+                     <children>
+                        <ImageView fitHeight="629.0" fitWidth="617.0" layoutX="-5.0" layoutY="-1.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../imagenes/fondo2.jpg" />
+                           </image>
+                        </ImageView>
+                        <TableView fx:id="tblLibrosDisponibles" layoutX="75.0" layoutY="127.0" prefHeight="233.0" prefWidth="456.0">
+                          <columns>
+                            <TableColumn fx:id="col_idLibroD" prefWidth="46.0" text="Id" />
+                            <TableColumn fx:id="colNombreLibroD" prefWidth="86.0" text="Nombre" />
+                              <TableColumn fx:id="colAutorLibroD" prefWidth="107.0" text="Autor" />
+                              <TableColumn fx:id="colFechaLibroD" prefWidth="135.0" text="Año de publicacion" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="175.0" layoutY="6.0" prefHeight="37.0" prefWidth="251.0" text="LIBROS DISPONIBLES">
+                           <font>
+                              <Font name="Lucida Calligraphy Italic" size="20.0" />
+                           </font></Label>
+                        <HBox layoutX="239.0" layoutY="555.0" spacing="50.0" />
+                        <Button fx:id="btnCerrarSesionD" layoutX="393.0" layoutY="537.0" mnemonicParsing="false" onAction="#cerrarSesionD" prefHeight="36.0" prefWidth="138.0" style="-fx-background-color: #CD5C5C;" text="Cerrar Sesion" textFill="WHITE">
+                           <font>
+                              <Font name="Franklin Gothic Demi" size="18.0" />
+                           </font></Button>
+                        <Button fx:id="btnSolicitarPrestamo" layoutX="75.0" layoutY="537.0" mnemonicParsing="false" onAction="#SolicitarPrestamo" prefHeight="36.0" prefWidth="147.0" style="-fx-background-color: #000000;" text="Solicitar Prestamo" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="75.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ordenar por: ">
+                           <font>
+                              <Font name="Calibri" size="17.0" />
+                           </font></Text>
+                        <ComboBox fx:id="cboxOrden" layoutX="188.0" layoutY="80.0" onAction="#ordenarLibros" prefHeight="29.0" prefWidth="338.0" />
+                        <ComboBox fx:id="cboxUsuarioPrestamo" layoutX="193.0" layoutY="424.0" prefHeight="40.0" prefWidth="220.0" />
+                        <Text layoutX="175.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elija su usuario para continuar con el prestamo de un libro" textAlignment="CENTER" wrappingWidth="255.49951171875" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
